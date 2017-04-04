@@ -11,6 +11,14 @@ const REMOVE     = 'REMOVE_STORY';
 /* ------------   ACTION CREATORS     ------------------ */
 
 const init   = stories => ({ type: INITIALIZE, stories });
+
+// const init = function(stories){
+//   return{
+//     type: INITIALIZE,
+//     stories: stories
+//   }
+// this object being returned is the "action" being passed into the reducer
+// }
 const create = story   => ({ type: CREATE, story });
 const remove = id      => ({ type: REMOVE, id });
 const update = story   => ({ type: UPDATE, story });
@@ -43,6 +51,14 @@ export default function reducer (stories = [], action) {
 }
 
 /* ------------       DISPATCHERS     ------------------ */
+
+// export const fetchStories = function (){
+//   return function (dispatch){
+//       axios.get('/api/stories')
+//        .then(res => dispatch(init(res.data)))
+//        .catch(err => console.error('Fetching stories unsuccessful', err));
+//   }
+// }
 
 export const fetchStories = () => dispatch => {
   axios.get('/api/stories')
